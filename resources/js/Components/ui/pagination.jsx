@@ -19,7 +19,7 @@ Pagination.displayName = "Pagination"
 const PaginationContent = React.forwardRef(({ className, ...props }, ref) => (
   <ul
     ref={ref}
-    className={cn("flex flex-row items-center gap-1", className)}
+    className={cn("flex flex-row items-center gap-2", className)}
     {...props} />
 ))
 PaginationContent.displayName = "PaginationContent"
@@ -38,7 +38,7 @@ const PaginationLink = ({
   <a
     aria-current={isActive ? "page" : undefined}
     className={cn(buttonVariants({
-      variant: isActive ? "outline" : "ghost",
+      variant: isActive ? "orange" : "ghost",
       size,
     }), className)}
     {...props} />
