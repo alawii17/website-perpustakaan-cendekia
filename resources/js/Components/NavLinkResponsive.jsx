@@ -1,3 +1,6 @@
+import { cn } from "@/lib/utils";
+import { Link } from '@inertiajs/react';
+
 export default function NavLinkResponsive({ active = false, url = '#', title, icon: Icon, ...props }) {
     return (
         <Link
