@@ -21,12 +21,12 @@ import {
     IconVersions,
 } from '@tabler/icons-react';
 
-export default function Sidebar() {
+export default function Sidebar({url}) {
     return (
         <nav className="grid items-start px-2 text-sm font-semibold lg:px-4">
             {/* Nav Menu Dashboard */}
             <div className="px-3 py-2 text-sm font-semibold text-foreground">Dashboard</div>
-            <NavLink url="#" title="Dashboard" icon={IconDashboard} />
+            <NavLink url={route('dashboard')} active={url.startsWith('/dashboard')} title="Dashboard" icon={IconDashboard} />
             {/* Nav Menu Statistik */}
             <div className="px-3 py-2 text-sm font-semibold text-foreground">Statistik</div>
             <NavLink url="#" title="Statistik Peminjaman" icon={IconChartDots2} />

@@ -5,11 +5,11 @@ export default function NavLink({ active = false, url = '#', title, icon: Icon, 
     return (
         <Link
             {...props}
-            href="{url}"
+            href={url}
             className={cn(
                 active
-                    ? 'bg-gradient-to-r from-orange-400 via-orange-600 to-orange-500 font-semibold text-white hover:text-white'
-                    : 'hover-text-orange-500 text-muted-foreground',
+                    ? 'bg-gradient-to-r from-orange-400 via-orange-600 to-orange-500 font-semibold text-white'
+                    : 'hover:text-orange-500 text-muted-foreground',
                 'flex items-center gap-3 rounded-lg p-3 font-medium transition-all',
             )}
         >
