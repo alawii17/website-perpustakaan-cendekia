@@ -16,8 +16,10 @@ import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { IconLayoutSidebar } from '@tabler/icons-react';
 import Sidebar from './Partials/Sidebar';
 import SidebarResponsive from './Partials/SidebarResponsive';
+import { AvatarImage } from '@radix-ui/react-avatar';
 
 export default function AppLayout({ title, children }) {
+    const auth = usePage().props.auth.user;
     const {url} = usePage();
     return (
         <>
@@ -33,7 +35,7 @@ export default function AppLayout({ title, children }) {
                         </div>
                         <div className="flex-1">
                             {/* sidebar */}
-                            <Sidebar url={url}/>
+                            <Sidebar url={url} auth={auth}/>
                         </div>
                     </div>
                 </div>
@@ -56,16 +58,17 @@ export default function AppLayout({ title, children }) {
                                     </SheetDescription>
                                 </SheetHeader>
                                 {/* Menu Sidebar Responsive */}
-                                <SidebarResponsive url={url} />
+                                <SidebarResponsive url={url} auth={auth}/>
                             </SheetContent>
                         </Sheet>
                         {/* {Dropdown} */}
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button variant="ghost" className="flex gap-x-2">
-                                    <span>Hi, Budi Setiawan</span>
+                                    <span>Hi, {auth.name}</span>
                                     <Avatar>
-                                        <AvatarFallback>BS</AvatarFallback>
+                                        <AvatarImage src={auth.avatar}/>
+                                        <AvatarFallback>{auth.name.split(" ").map(word => word[0]).join("").toUpperCase()}</AvatarFallback>
                                     </Avatar>
                                 </Button>
                             </DropdownMenuTrigger>

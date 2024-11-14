@@ -17,7 +17,9 @@ Route::get('/', function () {
 
 Route::get('testing', fn() => inertia('Testing'));
 
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::controller(DashboardController::class)->middleware(['auth'])->group(function(){
+    Route::get('dashboard', 'index')->name('dashboard');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
