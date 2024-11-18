@@ -1,13 +1,11 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import InputError from '@/Components/InputError';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
 import { Alert, AlertDescription } from '@/Components/ui/alert';
 import { Button } from '@/Components/ui/button';
 import { Input } from '@/Components/ui/input';
 import { Label } from '@/Components/ui/label';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Link, useForm } from '@inertiajs/react';
+import { useForm } from '@inertiajs/react';
 
 export default function ForgotPassword({ status }) {
     const { data, setData, post, processing, errors } = useForm({
@@ -41,32 +39,30 @@ export default function ForgotPassword({ status }) {
                             </div>
 
                             <form onSubmit={onHandlesubmit}>
-                                <div className='grid gap-4'>
-                                    <div className='grid gap-2'>
+                                <div className="grid gap-4">
+                                    <div className="grid gap-2">
                                         <Label htmlFor="email">Email</Label>
-                                    <Input
-                                    id="email"
-                                    type="email"
-                                    name="email"
-                                    value={data.email}
-                                    placeholder="zoro@cendekia.com"
-                                    autoComplete="username"
-                                    onChange={(e) => setData('email', e.target.value)}
-                                />
+                                        <Input
+                                            id="email"
+                                            type="email"
+                                            name="email"
+                                            value={data.email}
+                                            placeholder="zoro@cendekia.com"
+                                            autoComplete="username"
+                                            onChange={(e) => setData('email', e.target.value)}
+                                        />
 
-                                {errors.email && (
-                                    <InputError message={errors.email} />
-                                )}
+                                        {errors.email && <InputError message={errors.email} />}
                                     </div>
-                                <Button
-                                    type="submit"
-                                    variant="orange"
-                                    size="xl"
-                                    className="w-full"
-                                    disable={processing}
-                                >
-                                    Email Password Reset Link
-                                </Button>
+                                    <Button
+                                        type="submit"
+                                        variant="orange"
+                                        size="xl"
+                                        className="w-full"
+                                        disable={processing}
+                                    >
+                                        Email Password Reset Link
+                                    </Button>
                                 </div>
                             </form>
                         </div>
