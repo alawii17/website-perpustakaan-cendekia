@@ -1,10 +1,7 @@
-import AppLayout from "@/Layouts/AppLayout";
-
+import AppLayout from '@/Layouts/AppLayout';
 
 export default function Dashboard() {
-    return (
-        <AppLayout title="Dashboard">
-            Ini adalah Dashboard
-        </AppLayout>        
-    );
+    return <div>Ini adalah Dashboard</div>;
 }
+
+Dashboard.layout = (page) => <AppLayout children={page} title="Dashboard" />;

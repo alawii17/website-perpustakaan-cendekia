@@ -9,7 +9,7 @@ export default function NavLink({ active = false, url = '#', title, icon: Icon, 
             className={cn(
                 active
                     ? 'bg-gradient-to-r from-orange-400 via-orange-600 to-orange-500 font-semibold text-white'
-                    : 'hover:text-orange-500 text-muted-foreground',
+                    : 'text-muted-foreground hover:text-orange-500',
                 'flex items-center gap-3 rounded-lg p-3 font-medium transition-all',
             )}
         >

@@ -21,12 +21,17 @@ import {
     IconVersions,
 } from '@tabler/icons-react';
 
-export default function Sidebar({url, auth}) {
+export default function Sidebar({ url, auth }) {
     return (
         <nav className="grid items-start px-2 text-sm font-semibold lg:px-4">
             {/* Nav Menu Dashboard */}
             <div className="px-3 py-2 text-sm font-semibold text-foreground">Dashboard</div>
-            <NavLink url={route('dashboard')} active={url.startsWith('/dashboard')} title="Dashboard" icon={IconDashboard} />
+            <NavLink
+                url={route('dashboard')}
+                active={url.startsWith('/dashboard')}
+                title="Dashboard"
+                icon={IconDashboard}
+            />
             {/* Nav Menu Statistik */}
             <div className="px-3 py-2 text-sm font-semibold text-foreground">Statistik</div>
             <NavLink url="#" title="Statistik Peminjaman" icon={IconChartDots2} />
@@ -54,7 +59,14 @@ export default function Sidebar({url, auth}) {
             <div className="px-3 py-2 text-sm font-semibold text-foreground">Lainnya</div>
             <NavLink url="#" title="Pengumuman" icon={IconAlertCircle} />
             <NavLink url={route('profile.edit')} title="Profile" icon={IconUser} />
-            <NavLink url="#" title="Logout" icon={IconLogout} />
+            <NavLink
+                url={route('logout')}
+                title="Logout"
+                icon={IconLogout}
+                method="POST"
+                as="button"
+                className="w-full"
+            />
         </nav>
     );
 }
