@@ -5,9 +5,11 @@ import { Button } from "@/Components/ui/button"
 import { Card, CardContent } from "@/Components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/Components/ui/table"
 import AppLayout from "@/Layouts/AppLayout"
-import { Link } from "@inertiajs/react"
+import { flashMessage } from "@/lib/utils"
+import { Link, router } from "@inertiajs/react"
 import { AlertDialogTitle } from "@radix-ui/react-alert-dialog"
 import { IconCategory, IconPencil, IconPlus, IconTrash } from "@tabler/icons-react"
+import { toast } from "sonner"
 
 export default function Index(props){
     return (
@@ -52,7 +54,7 @@ export default function Index(props){
                                     <TableCell>{category.name}</TableCell>
                                     <TableCell>{category.slug}</TableCell>
                                     <TableCell>
-                                        <Avatar>
+                                        <Avatar>  
                                             <AvatarImage src={category.cover}/>
                                             <AvatarFallback>{category.name.substring(0,1)}</AvatarFallback>
                                         </Avatar>
@@ -84,7 +86,18 @@ export default function Index(props){
                                                     </AlertDialogHeader>
                                                     <AlertDialogFooter>
                                                         <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                                        <AlertDialogAction onClick={() => console.log('hapus')}>
+                                                        <AlertDialogAction onClick={() =>
+                                                            router.delete(
+                                                                route('admin.categories.destroy', [category]), {
+                                                                    preserveScroll: true,
+                                                                    preserveState: true,
+                                                                    onSuccess: (success) => {
+                                                                        const flash = flashMessage(success);
+                                                                        if (flash) toast[flash.type](flash.message);
+                                                                    }
+                                                                }
+                                                            )
+                                                        }>
                                                             Continue
                                                         </AlertDialogAction>
                                                     </AlertDialogFooter>
