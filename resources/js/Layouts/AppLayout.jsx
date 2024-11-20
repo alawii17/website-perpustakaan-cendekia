@@ -10,7 +10,7 @@ import {
     DropdownMenuTrigger,
 } from '@/Components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/Components/ui/sheet';
-import { Toaster } from '@/Components/ui/toaster';
+import { Toaster } from '@/Components/ui/sonner';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { AvatarImage } from '@radix-ui/react-avatar';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
