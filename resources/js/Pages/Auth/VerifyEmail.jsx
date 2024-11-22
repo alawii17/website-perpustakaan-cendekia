@@ -1,5 +1,4 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
-import PrimaryButton from '@/Components/PrimaryButton';
 import { Alert, AlertDescription } from '@/Components/ui/alert';
 import { Button } from '@/Components/ui/button';
 import GuestLayout from '@/Layouts/GuestLayout';
@@ -39,24 +38,14 @@ export default function VerifyEmail({ status }) {
                             </div>
                             {/* Form */}
                             <form onSubmit={onHandleSubmit}>
-                                <div className='grid gap-4'>
-                                    <Button
-                                        variant="orange"
-                                        size="xl"
-                                        className="w-full"
-                                        disabled={processing}
-                                    >
+                                <div className="grid gap-4">
+                                    <Button variant="orange" size="xl" className="w-full" disabled={processing}>
                                         Resend Verification Email
                                     </Button>
                                 </div>
                             </form>
-                            <div className='mt-4 text-center text-sm'>
-                                <Link
-                                    href={route('logout')}
-                                    method='post'
-                                    as='button'
-                                    className='underline'
-                                >
+                            <div className="mt-4 text-center text-sm">
+                                <Link href={route('logout')} method="post" as="button" className="underline">
                                     Logout
                                 </Link>
                             </div>

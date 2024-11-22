@@ -2,7 +2,7 @@ import { router } from '@inertiajs/react';
 import pkg from 'lodash';
 import { useCallback, useEffect } from 'react';
 
-export function UseFilter({route, values, only, wait = 300}){
+export function UseFilter({ route, values, only, wait = 300 }) {
     const { debounce, pickBy } = pkg;
     const reload = useCallback(
         debounce((query) => {
@@ -12,7 +12,7 @@ export function UseFilter({route, values, only, wait = 300}){
                 preserveScroll: true,
             });
         }, wait),
-            [],
+        [],
     );
 
     useEffect(() => reload(values), [values, reload]);
