@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('language')->default(BookLanguage::INDONESIA->value);
             $table->text('synopsis')->nullable();
             $table->unsignedInteger('number_of_pages')->default(0);
-            $table->string('status')->default(BookStatus::AVAIBLE->value);
+            $table->string('status')->default(BookStatus::AVAILABLE->value);
             $table->string('cover')->nullable();
             $table->unsignedInteger('price')->default(0);
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();

@@ -4,10 +4,15 @@ namespace App\Models;
 
 use App\Enums\BookLanguage;
 use App\Enums\BookStatus;
+use App\Observers\BookObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+
+#[ObservedBy(BookObserver::class)]
 
 class Book extends Model
 {
@@ -15,7 +20,7 @@ class Book extends Model
         'book_code',
         'title',
         'slug',
-        'auhtor',
+        'author',
         'publication_year',
         'isbn',
         'language',
@@ -55,4 +60,28 @@ class Book extends Model
         return $this->belongsTo(Publisher::class);
     }
 
+    public function scopeFilter(Builder $query, array $filters): void
+    {
+        $query->when($filters['search'] ?? null, function($query, $search) {
+            $query->where(function($query) use($search){
+                $query->whereAny([
+                    'book_code',
+                    'title',
+                    'slug',
+                    'author',
+                    'publication_year',
+                    'isbn',
+                    'language',
+                    'status',
+                ], 'REGEXP', $search);
+            });
+        });
+    }
+
+    public function scopeSorting(Builder $query, array $sorts): void
+    {
+        $query->when($sorts['field'] ?? null && $sorts['direction'] ?? null, function($query) use($sorts){
+            $query->orderBy($sorts['field'], $sorts['direction']);
+        });
+    }
 }
