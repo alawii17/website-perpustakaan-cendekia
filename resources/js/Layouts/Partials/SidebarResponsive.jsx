@@ -66,7 +66,8 @@ export default function SidebarResponsive({ url, auth }) {
                     title="Pengguna"
                     icon={IconUsersGroup}
                 />
-                <NavLinkResponsive url="#" title="Pengaturan Denda" icon={IconSettingsExclamation} />
+                <NavLinkResponsive url={route('admin.fine-settings.create')}
+                active={url.startsWith('/admin/fine-settings')} title="Pengaturan Denda" icon={IconSettingsExclamation} />
                 {/* Nav Menu Peran & Izin */}
                 <div className="px-3 py-2 text-sm font-semibold text-foreground">Peran & Izin</div>
                 <NavLinkResponsive url="#" title="Peran" icon={IconCircleKey} />

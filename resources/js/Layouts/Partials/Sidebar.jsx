@@ -63,7 +63,8 @@ export default function Sidebar({ url, auth }) {
                 title="Pengguna"
                 icon={IconUsersGroup}
             />
-            <NavLink url="#" title="Pengaturan Denda" icon={IconSettingsExclamation} />
+            <NavLink url={route('admin.fine-settings.create')}
+                active={url.startsWith('/admin/fine-settings')} title="Pengaturan Denda" icon={IconSettingsExclamation} />
             {/* Nav Menu Peran & Izin */}
             <div className="px-3 py-2 text-sm font-semibold text-foreground">Peran & Izin</div>
             <NavLink url="#" title="Peran" icon={IconCircleKey} />
