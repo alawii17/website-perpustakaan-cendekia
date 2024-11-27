@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PublisherController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
@@ -32,5 +33,14 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::get('books/edit/{book}', 'edit')->name('admin.books.edit');
         Route::put('books/edit/{book}', 'update')->name('admin.books.update');
         Route::delete('books/destroy/{book}', 'destroy')->name('admin.books.destroy');
+    });
+
+    Route::controller(UserController::class)->group(function(){
+        Route::get('users', 'index')->name('admin.users.index');
+        Route::get('users/create', 'create')->name('admin.users.create');
+        Route::post('users/create', 'store')->name('admin.users.store');
+        Route::get('users/edit/{user}', 'edit')->name('admin.users.edit');
+        Route::put('users/edit/{user}', 'update')->name('admin.users.update');
+        Route::delete('users/destroy/{user}', 'destroy')->name('admin.users.destroy');
     });
 });

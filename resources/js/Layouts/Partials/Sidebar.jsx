@@ -57,7 +57,12 @@ export default function Sidebar({ url, auth }) {
                 title="Buku"
                 icon={IconBook}
             />
-            <NavLink url="#" title="Pengguna" icon={IconUsersGroup} />
+            <NavLink
+                url={route('admin.users.index')}
+                active={url.startsWith('/admin/users')}
+                title="Pengguna"
+                icon={IconUsersGroup}
+            />
             <NavLink url="#" title="Pengaturan Denda" icon={IconSettingsExclamation} />
             {/* Nav Menu Peran & Izin */}
             <div className="px-3 py-2 text-sm font-semibold text-foreground">Peran & Izin</div>
