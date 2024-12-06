@@ -77,7 +77,8 @@ export default function SidebarResponsive({ url, auth }) {
                 <NavLinkResponsive url="#" title="Akses Rute" icon={IconRoute} />
                 {/* Transaksi */}
                 <div className="px-3 py-2 text-sm font-semibold text-foreground">Transaksi</div>
-                <NavLinkResponsive url="#" title="Peminjaman" icon={IconCreditCardPay} />
+                <NavLinkResponsive url={route('admin.loans.index')}
+                active={url.startsWith('/admin/loans')} title="Peminjaman" icon={IconCreditCardPay} />
                 <NavLinkResponsive url="#" title="Pengembalian" icon={IconCreditCardRefund} />
                 {/* Lainnya */}
                 <div className="px-3 py-2 text-sm font-semibold text-foreground">Lainnya</div>
