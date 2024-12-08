@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FineSettingController;
 use App\Http\Controllers\Admin\LoanController;
 use App\Http\Controllers\Admin\PublisherController;
+use App\Http\Controllers\Admin\ReturnBookController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,7 +61,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::delete('loans/destroy/{loan}', 'destroy')->name('admin.loans.destroy');
     });
     
-    Route::controller(LoanController::class)->group(function(){
+    Route::controller(ReturnBookController::class)->group(function(){
         Route::get('return-books', 'index')->name('admin.return-books.index');
         Route::get('return-books/{loan:loan_code}/create', 'create')->name('admin.return-books.create');
         Route::put('return-books/{loan:loan_code}/create', 'store')->name('admin.return-books.store');

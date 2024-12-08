@@ -66,8 +66,12 @@ export default function SidebarResponsive({ url, auth }) {
                     title="Pengguna"
                     icon={IconUsersGroup}
                 />
-                <NavLinkResponsive url={route('admin.fine-settings.create')}
-                active={url.startsWith('/admin/fine-settings')} title="Pengaturan Denda" icon={IconSettingsExclamation} />
+                <NavLinkResponsive
+                    url={route('admin.fine-settings.create')}
+                    active={url.startsWith('/admin/fine-settings')}
+                    title="Pengaturan Denda"
+                    icon={IconSettingsExclamation}
+                />
                 {/* Nav Menu Peran & Izin */}
                 <div className="px-3 py-2 text-sm font-semibold text-foreground">Peran & Izin</div>
                 <NavLinkResponsive url="#" title="Peran" icon={IconCircleKey} />
@@ -77,9 +81,18 @@ export default function SidebarResponsive({ url, auth }) {
                 <NavLinkResponsive url="#" title="Akses Rute" icon={IconRoute} />
                 {/* Transaksi */}
                 <div className="px-3 py-2 text-sm font-semibold text-foreground">Transaksi</div>
-                <NavLinkResponsive url={route('admin.loans.index')}
-                active={url.startsWith('/admin/loans')} title="Peminjaman" icon={IconCreditCardPay} />
-                <NavLinkResponsive url="#" title="Pengembalian" icon={IconCreditCardRefund} />
+                <NavLinkResponsive
+                    url={route('admin.loans.index')}
+                    active={url.startsWith('/admin/loans')}
+                    title="Peminjaman"
+                    icon={IconCreditCardPay}
+                />
+                <NavLinkResponsive
+                    url={route('admin.return-books.index')}
+                    active={url.startsWith('/admin/return-books')}
+                    title="Pengembalian"
+                    icon={IconCreditCardRefund}
+                />
                 {/* Lainnya */}
                 <div className="px-3 py-2 text-sm font-semibold text-foreground">Lainnya</div>
                 <NavLinkResponsive url="#" title="Pengumuman" icon={IconAlertCircle} />

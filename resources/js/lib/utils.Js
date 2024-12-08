@@ -16,7 +16,7 @@ export function flashMessage(params) {
 }
 
 export const formatToRupiah = (amount) => {
-    const formatter = new intl.NumberFormat('id-ID', {
+    const formatter = new Intl.NumberFormat('id-ID', {
         style: 'currency',
         currency: 'IDR',
         minimumFractionDigits: 0,

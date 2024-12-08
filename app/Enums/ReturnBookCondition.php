@@ -4,7 +4,7 @@ namespace App\Enums;
 
 enum ReturnBookCondition: string
 {
-    case GOOD = "Sesuia";
+    case GOOD = "Sesuai";
     case DAMAGED = "Rusak";
     case LOST = "Hilang";
 
