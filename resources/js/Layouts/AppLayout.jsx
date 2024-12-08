@@ -1,4 +1,5 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
+import Banner from '@/Components/Banner';
 import { Avatar, AvatarFallback } from '@/Components/ui/avatar';
 import { Button } from '@/Components/ui/button';
 import {
@@ -21,6 +22,7 @@ import SidebarResponsive from './Partials/SidebarResponsive';
 export default function AppLayout({ title, children }) {
     const auth = usePage().props.auth.user;
     const { url } = usePage();
+    const announcement = usePage().props.announcement;
     return (
         <>
             <Head title={title} />
@@ -102,7 +104,12 @@ export default function AppLayout({ title, children }) {
                                     }}
                                 />
                             </div>
-                            <div className="gap-4 p-4 lg:gap-6">{children}</div>
+                            <div className="gap-4 p-4 lg:gap-6">
+                                {children}
+                                {announcement && announcement.is_active == 1 && (
+                                    <Banner message={announcement.message} url={announcement.url} />
+                                )}
+                            </div>
                         </div>
                     </main>
                 </div>
