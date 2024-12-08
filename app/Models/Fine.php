@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\FinePaymentStatus;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Fine extends Model
 {
@@ -23,5 +24,15 @@ class Fine extends Model
             'payment_status' => FinePaymentStatus::class,
             'fine_date' => 'date',
         ];
+    }
+
+    public function returnBook(): BelongsTo
+    {
+        return $this->belongsTo(ReturnBook::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

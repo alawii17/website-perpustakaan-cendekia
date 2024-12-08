@@ -158,7 +158,7 @@ class ReturnBookController extends Controller
                 $this->createFine($returnBook, $late_fee, $other_fee);
 
                 return [
-                    'messsage' => 'Kondisi buku rusak, harus membayar denda kerusakan',
+                    'message' => 'Kondisi buku rusak, harus membayar denda kerusakan',
                 ];
             case ReturnBookCondition::LOST->value:
                 $other_fee = ($fineSetting->lost_fee_percentage / 100)* 2 * $returnBook->book->price;
@@ -168,7 +168,7 @@ class ReturnBookController extends Controller
                 $this->createFine($returnBook, $late_fee, $other_fee);
 
                 return [
-                    'messsage' => 'Kondisi buku hilang, harus membayar denda kehilangan',
+                    'message' => 'Kondisi buku hilang, harus membayar denda kehilangan',
                 ];
             default:
                 if($daysLate > 0){
@@ -177,7 +177,7 @@ class ReturnBookController extends Controller
                     ]);
                     $this->createFine($returnBook, $late_fee, 0);
                     return [
-                        'messsage' => 'Terlambat mengembalikan buku dan harus membayar denda keterlambatan',
+                        'message' => 'Terlambat mengembalikan buku dan harus membayar denda keterlambatan',
                     ];
                 } else {
                     $returnBook->update([

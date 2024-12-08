@@ -8,7 +8,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { UseFilter } from '@/hooks/UseFilter';
 import AppLayout from '@/Layouts/AppLayout';
 import { formatToRupiah } from '@/lib/utils';
-import { IconArrowsDownUp, IconCreditCardRefund, IconRefresh } from '@tabler/icons-react';
+import { Link } from '@inertiajs/react';
+import { IconArrowsDownUp, IconCreditCardRefund, IconEye, IconRefresh } from '@tabler/icons-react';
 import { useState } from 'react';
 
 export default function Index(props) {
@@ -210,7 +211,17 @@ export default function Index(props) {
                                     <TableCell className="text-red-500">{formatToRupiah(return_book.fine)}</TableCell>
                                     <TableCell>{return_book.return_book_check}</TableCell>
                                     <TableCell>{return_book.created_at}</TableCell>
-                                    <TableCell>-</TableCell>
+                                    <TableCell>
+                                        <div className="flex items-center gap-x-1">
+                                            {return_book.fine && (
+                                                <Button variant="blue" size="sm" asChild>
+                                                    <Link href={route('admin.fines.create', [return_book])}>
+                                                        <IconEye className="size-4" />
+                                                    </Link>
+                                                </Button>
+                                            )}
+                                        </div>
+                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

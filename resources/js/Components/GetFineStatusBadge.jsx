@@ -1,5 +1,5 @@
+import { Badge } from '@/Components/ui/badge';
 import { FINEPAYMENTSTATUS } from '@/lib/utils';
-import { Badge } from './Components/ui/badge';
 
 export default function GetFineStatusBadge({ status }) {
     const { PENDING, SUCCESS, FAILED } = FINEPAYMENTSTATUS;

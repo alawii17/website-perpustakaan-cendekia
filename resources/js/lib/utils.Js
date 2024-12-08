@@ -6,9 +6,9 @@ export function cn(...inputs) {
 }
 
 export const FINEPAYMENTSTATUS = {
-    PENDING: 'TERTUNDA',
-    SUCCESS: 'BERHASIL',
-    FAILED: 'GAGAL',
+    PENDING: 'Tertunda',
+    SUCCESS: 'Berhasil',
+    FAILED: 'Gagal',
 };
 
 export function flashMessage(params) {
