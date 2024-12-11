@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FineController;
 use App\Http\Controllers\Admin\FineSettingController;
 use App\Http\Controllers\Admin\LoanController;
+use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PublisherController;
 use App\Http\Controllers\Admin\ReturnBookController;
 use App\Http\Controllers\Admin\RoleController;
@@ -91,5 +92,14 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::get('roles/edit/{role}', 'edit')->name('admin.roles.edit');
         Route::put('roles/edit/{role}', 'update')->name('admin.roles.update');
         Route::delete('roles/destroy/{role}', 'destroy')->name('admin.roles.destroy');
+    });
+
+    Route::controller(PermissionController::class)->group(function(){
+        Route::get('permissions', 'index')->name('admin.permissions.index');
+        Route::get('permissions/create', 'create')->name('admin.permissions.create');
+        Route::post('permissions/create', 'store')->name('admin.permissions.store');
+        Route::get('permissions/edit/{permission}', 'edit')->name('admin.permissions.edit');
+        Route::put('permissions/edit/{permission}', 'update')->name('admin.permissions.update');
+        Route::delete('permissions/destroy/{permission}', 'destroy')->name('admin.permissions.destroy');
     });
 });
