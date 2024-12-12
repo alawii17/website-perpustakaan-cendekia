@@ -92,7 +92,12 @@ export default function SidebarResponsive({ url, auth }) {
                     title="Tetapkan Izin"
                     icon={IconKeyframe}
                 />
-                <NavLinkResponsive url="#" title="Tetapkan Peran" icon={IconLayoutKanban} />
+                <NavLink
+                    url={route('admin.assign-users.index')}
+                    active={url.startsWith('/admin/assign-users')}
+                    title="Tetapkan Peran"
+                    icon={IconLayoutKanban}
+                />
                 <NavLinkResponsive url="#" title="Akses Rute" icon={IconRoute} />
                 {/* Transaksi */}
                 <div className="px-3 py-2 text-sm font-semibold text-foreground">Transaksi</div>
