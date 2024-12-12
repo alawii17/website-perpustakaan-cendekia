@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Admin\AssignPermissionController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FineController;
@@ -101,5 +102,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::get('permissions/edit/{permission}', 'edit')->name('admin.permissions.edit');
         Route::put('permissions/edit/{permission}', 'update')->name('admin.permissions.update');
         Route::delete('permissions/destroy/{permission}', 'destroy')->name('admin.permissions.destroy');
+    });
+
+    Route::controller(AssignPermissionController::class)->group(function(){
+        Route::get('assign-permissions', 'index')->name('admin.assign-permissions.index');
+        Route::get('assign-permissions/edit/{role}', 'edit')->name('admin.assign-permissions.edit');
+        Route::put('assign-permissions/edit/{role}', 'update')->name('admin.assign-permissions.update');
     });
 });
