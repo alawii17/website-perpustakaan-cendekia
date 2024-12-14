@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Carbon;
 
 class Loan extends Model
 {
@@ -67,5 +68,17 @@ class Loan extends Model
             ->where('book_id', $book_id)
             ->whereDoesntHave('returnBook', fn($query) => $query->where('book_id', $book_id)->where('user_id', $user_id))
             ->exists();
+    }
+
+    public static function totalLoanBooks(): array
+    {
+        return [
+            'days' => self::whereDate('created_at', Carbon::now()->toDateString())->count(),
+            'weeks' => self::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count(),
+            'months' => self::whereMonth('created_at', Carbon::now()->month)
+                ->whereYear('created_at', Carbon::now()->year)
+                ->count(),
+            'years' => self::whereYear('created_at', Carbon::now()->year)->count(),
+        ];
     }
 }

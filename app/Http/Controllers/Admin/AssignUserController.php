@@ -54,9 +54,9 @@ class AssignUserController extends Controller
                 'method' => 'PUT',
                 'action' => route('admin.assign-users.update', $user),
             ],
-            'user' => $user->load(['roles']),
+            'user' => $user->load('roles'),
             'roles' => Role::query()->select(['id', 'name'])->where('guard_name', 'web')->get()->map(fn($item) => [
-                'value' => $item->name,
+                'value' => $item->id,
                 'label' => $item->name,
             ]),
         ]);
