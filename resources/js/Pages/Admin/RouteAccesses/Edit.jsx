@@ -1,32 +1,22 @@
+import ComboBox from '@/Components/ComboBox';
 import HeaderTitle from '@/Components/HeaderTitle';
 import InputError from '@/Components/InputError';
-import { MultiSelect } from '@/Components/MultiSelect';
 import { Button } from '@/Components/ui/button';
 import { Card, CardContent } from '@/Components/ui/card';
-import { Input } from '@/Components/ui/input';
 import { Label } from '@/Components/ui/label';
 import AppLayout from '@/Layouts/AppLayout';
 import { flashMessage } from '@/lib/utils';
 import { Link, useForm } from '@inertiajs/react';
-import { IconArrowLeft, IconLayoutKanban } from '@tabler/icons-react';
-import { useState } from 'react';
+import { IconArrowLeft, IconRoute } from '@tabler/icons-react';
 import { toast } from 'sonner';
 
 export default function Edit(props) {
-    const [selectedRoles, setSelectedRoles] = useState(Array.from(new Set(props.user.roles.map((role) => role.id))));
-
     const { data, setData, reset, post, processing, errors } = useForm({
-        email: props.user.email ?? '',
-        roles: selectedRoles,
+        route_name: props.routeAccess.route_name ?? null,
+        role: props.routeAccess.role?.name ?? null,
+        permission: props.routeAccess.permission?.name ?? null,
         _method: props.page_settings.method,
     });
-
-    const onHandleChange = (e) => setData(e.target.name, e.target.value);
-
-    const handleRoleChange = (selected) => {
-        setSelectedRoles(selected);
-        setData('roles', selected);
-    };
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
@@ -43,16 +33,17 @@ export default function Edit(props) {
     const onHandleReset = () => {
         reset();
     };
+
     return (
         <div className="flex w-full flex-col pb-32">
             <div className="gp-y-4 mb-8 flex flex-col items-start justify-between lg:flex-row lg:items-center">
                 <HeaderTitle
                     title={props.page_settings.title}
                     subTitle={props.page_settings.subtitle}
-                    icon={IconLayoutKanban}
+                    icon={IconRoute}
                 />
                 <Button variant="orange" size="lg" asChild>
-                    <Link href={route('admin.assign-users.index')}>
+                    <Link href={route('admin.route-accesses.index')}>
                         <IconArrowLeft className="size-4" />
                         Kembali
                     </Link>
@@ -62,29 +53,35 @@ export default function Edit(props) {
                 <CardContent className="p-6">
                     <form className="space-y-6" onSubmit={onHandleSubmit}>
                         <div className="grid w-full items-center gap-1.5">
-                            <Label htmlFor="email">Pengguna</Label>
-                            <Input
-                                name="email"
-                                id="email"
-                                type="text"
-                                placeholder="Masukkan email..."
-                                value={data.email}
-                                onChange={onHandleChange}
-                                disabled
+                            <Label htmlFor="route_name">Rute</Label>
+                            <ComboBox
+                                items={props.routes.filter((route) => route.value !== null)}
+                                selectedItem={data.route_name}
+                                onSelect={(currentValue) => setData('route_name', currentValue)}
                             />
-                            {errors.email && <InputError message={errors.email} />}
+                            {errors.route_name && <InputError message={errors.route_name} />}
                         </div>
+
                         <div className="grid w-full items-center gap-1.5">
-                            <Label htmlFor="roles">Peran</Label>
-                            <MultiSelect
-                                options={props.roles}
-                                onValueChange={handleRoleChange}
-                                default={selectedRoles}
-                                placeholder="Pilih Peran"
-                                variant="inverted"
+                            <Label htmlFor="role">Peran</Label>
+                            <ComboBox
+                                items={props.roles}
+                                selectedItem={data.role}
+                                onSelect={(currentValue) => setData('role', currentValue)}
                             />
-                            {errors.roles && <InputError message={errors.roles} />}
+                            {errors.role && <InputError message={errors.role} />}
                         </div>
+
+                        <div className="grid w-full items-center gap-1.5">
+                            <Label htmlFor="permission">Izin</Label>
+                            <ComboBox
+                                items={props.permissions}
+                                selectedItem={data.permission}
+                                onSelect={(currentValue) => setData('permission', currentValue)}
+                            />
+                            {errors.permission && <InputError message={errors.permission} />}
+                        </div>
+
                         <div className="flex justify-end gap-2">
                             <Button type="button" variant="ghost" size="lg" onClick={onHandleReset}>
                                 Reset

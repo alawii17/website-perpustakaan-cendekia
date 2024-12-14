@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AssignUserRequest extends FormRequest
+class RouteAccessRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,16 @@ class AssignUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'roles' => [
+            'route_name' => [
+                'required'
+            ],
+            'role' => [
                 'nullable',
                 'exists:roles,name'
+            ],  
+            'permission' => [
+                'nullable',
+                'exists:permissions,name'
             ],
         ];
     }
@@ -32,7 +39,9 @@ class AssignUserRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'roles' => 'Peran',
+            'route_name' => 'Rute',
+            'role' => 'Peran',
+            'permission' => 'Izin',
         ];
     }
 }
