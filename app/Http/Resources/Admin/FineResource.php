@@ -21,7 +21,7 @@ class FineResource extends JsonResource
             'other_fee' => $this->other_fee,
             'total_fee' => $this->total_fee,
             'payment_status' => $this->payment_status,
-            'laon' => $this->whenLoaded('returnBook', [
+            'loan' => $this->whenLoaded('returnBook', [
                 'id' => $this->returnBook?->loan?->id,
                 'loan_code' => $this->returnBook?->loan?->loan_code,
                 'loan_date' => Carbon::parse($this->returnBook?->loan?->loan_date)->format('d M Y'),

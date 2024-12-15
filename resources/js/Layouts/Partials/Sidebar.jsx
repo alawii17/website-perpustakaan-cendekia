@@ -40,7 +40,12 @@ export default function Sidebar({ url, auth }) {
                 title="Statistik Peminjaman"
                 icon={IconChartDots2}
             />
-            <NavLink url="#" title="Laporan Denda" icon={IconMoneybag} />
+            <NavLink
+                url={route('admin.fine-reports.index')}
+                active={url.startsWith('/admin/fine-reports')}
+                title="Laporan Denda"
+                icon={IconMoneybag}
+            />
             <NavLink url="#" title="Laporan Stok Buku" icon={IconStack3} />
             {/* Nav Menu Master */}
             <div className="px-3 py-2 text-sm font-semibold text-foreground">Master</div>
