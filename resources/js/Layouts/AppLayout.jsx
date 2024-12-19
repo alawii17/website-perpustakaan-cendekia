@@ -46,7 +46,7 @@ export default function AppLayout({ title, children }) {
                         {/* {sidebar responsive} */}
                         <Sheet>
                             <SheetTrigger asChild>
-                                <Button variant="outline" size="icon" className="shrink-0 md:hidden">
+                                <Button variant="outline" size="icon" className="shrink-0 lg:hidden">
                                     <IconLayoutSidebar className="size-5" />
                                 </Button>
                             </SheetTrigger>
