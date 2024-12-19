@@ -27,7 +27,7 @@ export default function Login({ status, canResetPassword }) {
         <div className="w-full lg:grid lg:min-h-screen lg:grid-cols-2">
             <div className="flex flex-col px-6 py-4">
                 <ApplicationLogo size="size-12" />
-                <div className="flex flex-col items-center justify-center py-12 lg:py-40">
+                <div className="flex flex-col items-center justify-center py-12 lg:py-20">
                     <div className="mx-auto flex w-full flex-col gap-6 lg:w-1/2">
                         <div className="grid gap-2 text-center">
                             {status && (
@@ -74,6 +74,7 @@ export default function Login({ status, canResetPassword }) {
                                         name="password"
                                         type="password"
                                         autoComplete="password"
+                                        placeholder="********"
                                         value={data.password}
                                         onChange={(e) => setData(e.target.name, e.target.value)}
                                     />

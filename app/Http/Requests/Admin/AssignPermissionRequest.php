@@ -24,7 +24,7 @@ class AssignPermissionRequest extends FormRequest
         return [
             'permissions' => [
                 'nullable',
-                'exists:permissions,id'
+                'exists:permissions,name'
             ],
         ];
     }
@@ -32,7 +32,7 @@ class AssignPermissionRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'permissions' => 'Izin',
+            'permissions' => 'Permission',
         ];
     }
 }

@@ -54,7 +54,7 @@ class AssignPermissionController extends Controller
                 'method' => 'PUT',
                 'action' => route('admin.assign-permissions.update', $role),
             ],
-            'role' => $role->load(['permissions']),
+            'role' => $role->load('permissions'),
             'permissions' => Permission::query()->select(['id', 'name'])->where('guard_name', 'web')->get()->map(fn($item) => [
                 'value' => $item->name,
                 'label' => $item->name,

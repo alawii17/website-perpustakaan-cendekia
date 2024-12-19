@@ -29,7 +29,7 @@ export default function Register() {
             <div className="w-full lg:grid lg:min-h-screen lg:grid-cols-2">
                 <div className="flex flex-col px-6 py-4">
                     <ApplicationLogo size="size-12" />
-                    <div className="flex flex-col items-center justify-center py-12 lg:py-40">
+                    <div className="flex flex-col items-center justify-center py-12 lg:py-20">
                         <div className="mx-auto flex w-full flex-col gap-6 lg:w-1/2">
                             <div className="grid gap-2 text-center">
                                 <h1 className="text-3xl font-bold">Daftar</h1>
@@ -46,6 +46,7 @@ export default function Register() {
                                             id="name"
                                             name="name"
                                             value={data.name}
+                                            placeholder="Roronoa Zoro"
                                             autoComplete="name"
                                             onChange={onHandleChange}
                                         />
@@ -60,6 +61,7 @@ export default function Register() {
                                             id="email"
                                             name="email"
                                             value={data.email}
+                                            placeholder="zoro@cendekia.com"
                                             type="email"
                                             autoComplete="username"
                                             onChange={onHandleChange}
@@ -75,6 +77,7 @@ export default function Register() {
                                             id="password"
                                             name="password"
                                             value={data.password}
+                                            placeholder="********"
                                             type="password"
                                             autoComplete="new-password"
                                             onChange={onHandleChange}
@@ -90,6 +93,7 @@ export default function Register() {
                                             id="password_confirmation"
                                             name="password_confirmation"
                                             value={data.password_confirmation}
+                                            placeholder="********"
                                             type="password"
                                             autoComplete="new-password"
                                             onChange={onHandleChange}
@@ -114,7 +118,7 @@ export default function Register() {
                             <div className="mt-1 text-center text-sm">
                                 Sudah punya akun?{' '}
                                 <Link href={route('login')} className="underline">
-                                    Daftar
+                                    Masuk
                                 </Link>
                             </div>
                         </div>

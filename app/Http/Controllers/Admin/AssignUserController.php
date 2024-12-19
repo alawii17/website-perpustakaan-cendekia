@@ -56,7 +56,7 @@ class AssignUserController extends Controller
             ],
             'user' => $user->load('roles'),
             'roles' => Role::query()->select(['id', 'name'])->where('guard_name', 'web')->get()->map(fn($item) => [
-                'value' => $item->id,
+                'value' => $item->name,
                 'label' => $item->name,
             ]),
         ]);
