@@ -46,7 +46,12 @@ export default function Sidebar({ url, auth }) {
                 title="Laporan Denda"
                 icon={IconMoneybag}
             />
-            <NavLink url="#" title="Laporan Stok Buku" icon={IconStack3} />
+            <NavLink 
+                url={route('admin.book-stock-reports.index')}
+                active={url.startsWith('/admin/book-stock-reports')} 
+                title="Laporan Stok Buku" 
+                icon={IconStack3} 
+            />
             {/* Nav Menu Master */}
             <div className="px-3 py-2 text-sm font-semibold text-foreground">Master</div>
             <NavLink
