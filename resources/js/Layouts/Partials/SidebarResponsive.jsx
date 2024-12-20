@@ -162,13 +162,13 @@ export default function SidebarResponsive({ url, auth }) {
                 {auth.role.some((role) => ['member'].includes(role)) && (
                     <>
                         <NavLinkResponsive
-                            url={route('front-books.index')}
+                            url={route('front.books.index')}
                             active={url.startsWith('/books')}
                             title="Buku"
                             icon={IconBooks}
                         />
                         <NavLinkResponsive
-                            url='#'
+                            url={route('front.categories.index')}
                             active={url.startsWith('/categories')}
                             title="Kategori"
                             icon={IconCategory}

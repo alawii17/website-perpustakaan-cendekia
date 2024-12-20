@@ -77,7 +77,7 @@ class BookController extends Controller
     public function store(BookRequest $request): RedirectResponse
     {
         try {
-            $book = Book::create([
+            Book::create([
                 'book_code' => $this->bookCode(
                     $request->publication_year,
                     $request->category_id

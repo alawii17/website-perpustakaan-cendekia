@@ -22,7 +22,7 @@ export default function Index(props){
                             {category.name}
                         </h2>
                         <Button variant="link" asChild>
-                            <Link href="#">Lihat Semua</Link>
+                            <Link href={route('front.categories.show', [category.slug])}>Lihat Semua</Link>
                         </Button>
                     </div>
                     <div className="grid gap-4 py-10 border-b border-dashed border-muted md:gap-8 lg:grid-cols-4">

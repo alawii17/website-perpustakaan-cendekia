@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookFrontController;
+use App\Http\Controllers\CategoryFrontController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -16,8 +17,13 @@ Route::controller(DashboardController::class)->middleware(['auth', 'verified'])-
 });
 
 Route::controller(BookFrontController::class)->middleware(['auth', 'verified', 'role:member'])->group(function(){
-    Route::get('books', 'index')->name('front-books.index');
-    Route::get('books/{book:slug}', 'show')->name('front-books.show');
+    Route::get('books', 'index')->name('front.books.index');
+    Route::get('books/{book:slug}', 'show')->name('front.books.show');
+});
+
+Route::controller(CategoryFrontController::class)->middleware(['auth', 'verified', 'role:member'])->group(function(){
+    Route::get('categories', 'index')->name('front.categories.index');
+    Route::get('categories/{category:slug}', 'show')->name('front.categories.show');
 });
 
 Route::middleware('auth')->group(function () {
