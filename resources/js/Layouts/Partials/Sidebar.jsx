@@ -63,7 +63,7 @@ export default function Sidebar({ url, auth }) {
                 </>
             )}
 
-            {auth.role.some((role) => ['operator'].includes(role)) && (
+            {auth.role.some((role) => ['admin','operator'].includes(role)) && (
                 <>
                     {/* Nav Menu Master */}
                     <div className="px-3 py-2 text-sm font-semibold text-foreground">Master</div>
@@ -160,7 +160,7 @@ export default function Sidebar({ url, auth }) {
             {auth.role.some((role) => ['member'].includes(role)) && (
                 <>
                     <NavLink
-                        url='#'
+                        url={route('front-books.index')}
                         active={url.startsWith('/books')}
                         title="Buku"
                         icon={IconBooks}

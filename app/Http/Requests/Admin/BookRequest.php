@@ -61,7 +61,7 @@ class BookRequest extends FormRequest
             'cover' => [
                 'nullable',
                 'mimes:png,jpg,jpeg,webp',
-                'max:2048',
+                'max:4000',
             ],
             'price' => [
                 'required',

@@ -179,8 +179,11 @@ class BookController extends Controller
     private function bookCode(int $publication_year, int $category_id): string
     {
         $category = Category::find($category_id);
+        $book_code_prefix = 'CA'. $publication_year. '.' . str()->slug($category->name). '.';
+
         $last_book = Book::query()
-            ->orderByDesc('book_code')
+            ->where('book_code', 'like', $book_code_prefix . '%')
+            ->orderByRaw('CAST(SUBSTRING(book_code, -4) AS UNSIGNED) DESC')
             ->first();
         
         $order = 1;
@@ -191,6 +194,6 @@ class BookController extends Controller
         }
 
         $ordering = str_pad($order, 4, '0', STR_PAD_LEFT);
-        return 'CA'. $publication_year. '.' . str()->slug($category->name). '.' . $ordering;
+        return $book_code_prefix . $ordering;
     }
 }

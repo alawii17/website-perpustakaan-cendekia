@@ -3,6 +3,7 @@ import NavLinkResponsive from '@/Components/NavLinkResponsive';
 import {
     IconAlertCircle,
     IconBook,
+    IconBooks,
     IconBuildingCommunity,
     IconCategory,
     IconChartDots2,
@@ -161,7 +162,7 @@ export default function SidebarResponsive({ url, auth }) {
                 {auth.role.some((role) => ['member'].includes(role)) && (
                     <>
                         <NavLinkResponsive
-                            url='#'
+                            url={route('front-books.index')}
                             active={url.startsWith('/books')}
                             title="Buku"
                             icon={IconBooks}
