@@ -174,7 +174,7 @@ export default function SidebarResponsive({ url, auth }) {
                             icon={IconCategory}
                         />
                         <NavLinkResponsive
-                            url='#'
+                            url={route('front.loans.index')}
                             active={url.startsWith('/loans')}
                             title="Peminjaman"
                             icon={IconCreditCardPay}

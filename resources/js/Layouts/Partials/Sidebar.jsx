@@ -172,7 +172,7 @@ export default function Sidebar({ url, auth }) {
                         icon={IconCategory}
                     />
                     <NavLink
-                        url='#'
+                        url={route('front.loans.index')}
                         active={url.startsWith('/loans')}
                         title="Peminjaman"
                         icon={IconCreditCardPay}
