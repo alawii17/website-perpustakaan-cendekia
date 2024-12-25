@@ -93,7 +93,23 @@ export default function Show(props) {
                             {!props.loan.return_book && (
                                 <Button 
                                     variant='orange' 
-                                    onClick={() => console.log('kembalikan buku')}
+                                    onClick={() => 
+                                        router.post(
+                                            route('front.return-books.store', [
+                                                props.loan.book.slug,
+                                                props.loan.loan_code,
+                                            ]),
+                                            {},
+                                            {
+                                                preserveScroll: true,
+                                                preserveState: true,
+                                                onSuccess: (success) => {
+                                                    const flash = flashMessage(success);
+                                                    if (flash) toast[flash.type](flash.message)
+                                                }
+                                            }
+                                        )
+                                    }
                                 >
                                 Kembalikan
                             </Button>
