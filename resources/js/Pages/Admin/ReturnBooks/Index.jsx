@@ -11,6 +11,7 @@ import { formatToRupiah } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
 import { IconArrowsDownUp, IconCreditCardRefund, IconEye, IconRefresh } from '@tabler/icons-react';
 import { useState } from 'react';
+import Approve from './Approve';
 
 export default function Index(props) {
     const { data: return_books, meta } = props.return_books;
@@ -219,6 +220,12 @@ export default function Index(props) {
                                                         <IconEye className="size-4" />
                                                     </Link>
                                                 </Button>
+                                            )}
+                                            {return_book.status === 'Pengecekan' && (
+                                                <Approve 
+                                                    conditions={props.conditions}
+                                                    action={route('admin.return-books.approve', [return_book])}
+                                                />
                                             )}
                                         </div>
                                     </TableCell>
