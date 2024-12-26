@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookFrontController;
 use App\Http\Controllers\CategoryFrontController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FineFrontController;
 use App\Http\Controllers\LoanFrontController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReturnBookFrontController;
@@ -45,6 +46,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('fines', FineFrontController::class)
+    ->middleware(['auth', 'verified', 'role:member'])
+    ->name('front.fines.index');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';

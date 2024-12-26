@@ -184,7 +184,7 @@ export default function Sidebar({ url, auth }) {
                         icon={IconCreditCardRefund}
                     />
                     <NavLink
-                        url='#'
+                        url={route('front.fines.index')}
                         active={url.startsWith('/fines')}
                         title="Denda"
                         icon={IconMoneybag}
