@@ -1,4 +1,5 @@
 import CardStat from '@/Components/CardStat';
+import ChartCustome from '@/Components/ChartCustome';
 import HeaderTitle from '@/Components/HeaderTitle';
 import { Button } from '@/Components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/Components/ui/card';
@@ -107,6 +108,8 @@ export default function Dashboard(props) {
                     </CardStat>
                 </div>
             )}
+
+            <ChartCustome chartData={props.page_data.transactionChart} />
 
             <div className="flex w-full flex-col justify-between gap-2 lg:flex-row">
                 <Card className="w-full lg:w-1/2">
