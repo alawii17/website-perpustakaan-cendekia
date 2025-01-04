@@ -1,4 +1,5 @@
 # 📚 **CENDEKIA**
+![Desain tanpa judul (6)](https://github.com/user-attachments/assets/45a6f1b3-9d05-4964-9ee8-09ca00b60718)
 
 ## 🚀 **Tentang Proyek**
 Proyek ini adalah aplikasi web Fullstack CMS(Content Management System) untuk Sistem Perpustakaan dengan dilengkapi fitur Denda dan proses pembayarannya.
