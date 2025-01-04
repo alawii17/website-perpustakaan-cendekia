@@ -22,14 +22,20 @@ Proyek ini adalah aplikasi web Fullstack CMS(Content Management System) untuk Si
 
 ### **1. Clone Repository**
 ```bash
-git clone [https://github.com/alawii17/website-perpustakaan-cendekia.git]
+https://github.com/alawii17/website-perpustakaan-cendekia.git
+```
+```bash
 cd website-perpustakaan-cendekia
 ```
 
 ### **2. Instal Dependensi Backend (Laravel)**
 ```bash
 composer install
+```
+```bash
 cp .env.example .env
+```
+```bash
 php artisan key:generate
 ```
 
