@@ -1,5 +1,6 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Banner from '@/Components/Banner';
+import ThemeSwitcher from '@/Components/ThemeSwitcher';
 import { Avatar, AvatarFallback } from '@/Components/ui/avatar';
 import { Button } from '@/Components/ui/button';
 import {
@@ -34,6 +35,7 @@ export default function AppLayout({ title, children }) {
                     <div className="flex h-full min-h-screen flex-col gap-2">
                         <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
                             <ApplicationLogo />
+                            <ThemeSwitcher />
                         </div>
                         <div className="flex-1">
                             {/* sidebar */}
