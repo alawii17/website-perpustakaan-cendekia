@@ -57,11 +57,11 @@ export default function SidebarResponsive({ url, auth }) {
                             title="Laporan Denda"
                             icon={IconMoneybag}
                         />
-                        <NavLinkResponsive 
+                        <NavLinkResponsive
                             url={route('admin.book-stock-reports.index')}
-                            active={url.startsWith('/admin/book-stock-reports')} 
-                            title="Laporan Stok Buku" 
-                            icon={IconStack3} 
+                            active={url.startsWith('/admin/book-stock-reports')}
+                            title="Laporan Stok Buku"
+                            icon={IconStack3}
                         />
                     </>
                 )}
@@ -103,7 +103,7 @@ export default function SidebarResponsive({ url, auth }) {
                     </>
                 )}
 
-                 {auth.role.some((role) => ['admin'].includes(role)) && (
+                {auth.role.some((role) => ['admin'].includes(role)) && (
                     <>
                         {/* Nav Menu Peran & Izin */}
                         <div className="px-3 py-2 text-sm font-semibold text-foreground">Peran & Izin</div>
@@ -196,7 +196,7 @@ export default function SidebarResponsive({ url, auth }) {
 
                 {auth.role.some((role) => ['admin', 'operator'].includes(role)) && (
                     <>
-                    {/* Lainnya */}
+                        {/* Lainnya */}
                         <div className="px-3 py-2 text-sm font-semibold text-foreground">Lainnya</div>
                         <NavLinkResponsive
                             url={route('admin.announcements.index')}

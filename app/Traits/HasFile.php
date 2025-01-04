@@ -10,7 +10,7 @@ trait Hasfile
 {
     public function upload_file(Request $request, string $colomn, string $folder): ?string
     {
-        return $request->Hasfile($colomn) ? $request->file($colomn)->store($folder) : null;
+        return $request->hasfile($colomn) ? $request->file($colomn)->store($folder) : null;
     }
 
     public function update_file(Request $request, Model $model, string $colomn, string $folder): ?string
@@ -29,7 +29,7 @@ trait Hasfile
 
     public function delete_file(Model $model, string $colomn): void
     {
-        if ($model->column) {
+        if ($model->colomn) {
             Storage::delete($model->$colomn);
         }
     }

@@ -4,12 +4,10 @@ import { Button } from '@/Components/ui/button';
 import { Card, CardContent } from '@/Components/ui/card';
 import { Input } from '@/Components/ui/input';
 import { Label } from '@/Components/ui/label';
-import { Textarea } from '@/Components/ui/textarea';
 import AppLayout from '@/Layouts/AppLayout';
 import { flashMessage } from '@/lib/utils';
 import { Link, useForm } from '@inertiajs/react';
-import { IconArrowLeft, IconCategory, IconStack3 } from '@tabler/icons-react';
-import { useRef } from 'react';
+import { IconArrowLeft, IconStack3 } from '@tabler/icons-react';
 import { toast } from 'sonner';
 
 export default function Edit(props) {
@@ -24,19 +22,19 @@ export default function Edit(props) {
 
     const calculateMinimumTotal = (available, loan, lost, damaged) => {
         return available + loan + lost + damaged;
-    }
+    };
 
     const onHandleChange = (e) => {
         const { name, value } = e.target;
         const newValue = parseInt(value, 10) || 0;
 
         setData((prevData) => {
-            if(name == 'total') {
+            if (name == 'total') {
                 const minimumTotal = calculateMinimumTotal(
                     prevData.available,
                     prevData.loan,
                     prevData.lost,
-                    prevData.damaged
+                    prevData.damaged,
                 );
 
                 const validTotal = newValue >= minimumTotal ? newValue : minimumTotal;
@@ -93,13 +91,7 @@ export default function Edit(props) {
                     <form className="space-y-6" onSubmit={onHandleSubmit}>
                         <div className="grid w-full items-center gap-1.5">
                             <Label htmlFor="total">Total</Label>
-                            <Input
-                                name="total"
-                                id="total"
-                                type="number"
-                                value={data.total}
-                                onChange={onHandleChange}
-                            />
+                            <Input name="total" id="total" type="number" value={data.total} onChange={onHandleChange} />
                             {errors.total && <InputError message={errors.total} />}
                         </div>
                         <div className="grid w-full items-center gap-1.5">

@@ -13,20 +13,17 @@ class ReturnBook extends Model
 {
     protected $fillable = [
         'return_book_code',
-        'load_id',
+        'loan_id',
         'user_id',
         'book_id',
         'return_date',
         'status',
     ];
-
-    protected function casts(): array
-    {
-        return [
-            'return_date' => 'date',
-            'status' => ReturnBookStatus::class,
-        ];
-    }
+    
+    protected $casts = [
+        'return_date' => 'date',
+        'status' => ReturnBookStatus::class,
+    ];
 
     public function loan(): BelongsTo
     {

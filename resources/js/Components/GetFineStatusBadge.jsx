@@ -12,11 +12,11 @@ export default function GetFineStatusBadge({ status }) {
             break;
         case SUCCESS:
             badge = 'text-white bg-gradient-to-r from-green-400 via-green-500 to-green-500 bg-green-500';
-            text = PENDING;
+            text = SUCCESS;
             break;
         case FAILED:
             badge = 'text-white bg-gradient-to-r from-red-400 via-red-500 to-red-500 bg-red-500';
-            text = PENDING;
+            text = FAILED;
             break;
         default:
             badge = '';

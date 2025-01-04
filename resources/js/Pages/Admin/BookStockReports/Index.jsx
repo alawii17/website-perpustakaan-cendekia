@@ -1,15 +1,4 @@
 import HeaderTitle from '@/Components/HeaderTitle';
-import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTrigger,
-} from '@/Components/ui/alert-dialog';
-import { Avatar, AvatarFallback, AvatarImage } from '@/Components/ui/avatar';
 import { Button } from '@/Components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/Components/ui/card';
 import { Input } from '@/Components/ui/input';
@@ -18,12 +7,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/Components/ui/table';
 import { UseFilter } from '@/hooks/UseFilter';
 import AppLayout from '@/Layouts/AppLayout';
-import { flashMessage } from '@/lib/utils';
-import { Link, router } from '@inertiajs/react';
-import { AlertDialogTitle } from '@radix-ui/react-alert-dialog';
-import { IconArrowsDownUp, IconCategory, IconPencil, IconPlus, IconRefresh, IconStack3, IconTrash } from '@tabler/icons-react';
+import { Link } from '@inertiajs/react';
+import { IconArrowsDownUp, IconPencil, IconRefresh, IconStack3 } from '@tabler/icons-react';
 import { useState } from 'react';
-import { toast } from 'sonner';
 
 export default function Index(props) {
     const { data: stocks, meta } = props.stocks;

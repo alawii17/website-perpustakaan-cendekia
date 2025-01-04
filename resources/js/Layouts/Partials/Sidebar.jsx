@@ -54,16 +54,16 @@ export default function Sidebar({ url, auth }) {
                         title="Laporan Denda"
                         icon={IconMoneybag}
                     />
-                    <NavLink 
+                    <NavLink
                         url={route('admin.book-stock-reports.index')}
-                        active={url.startsWith('/admin/book-stock-reports')} 
-                        title="Laporan Stok Buku" 
-                        icon={IconStack3} 
+                        active={url.startsWith('/admin/book-stock-reports')}
+                        title="Laporan Stok Buku"
+                        icon={IconStack3}
                     />
                 </>
             )}
 
-            {auth.role.some((role) => ['admin','operator'].includes(role)) && (
+            {auth.role.some((role) => ['admin', 'operator'].includes(role)) && (
                 <>
                     {/* Nav Menu Master */}
                     <div className="px-3 py-2 text-sm font-semibold text-foreground">Master</div>
@@ -137,7 +137,6 @@ export default function Sidebar({ url, auth }) {
                 </>
             )}
 
-
             {auth.role.some((role) => ['admin', 'operator'].includes(role)) && (
                 <>
                     {/* Transaksi */}
@@ -194,7 +193,7 @@ export default function Sidebar({ url, auth }) {
 
             {auth.role.some((role) => ['admin', 'operator'].includes(role)) && (
                 <>
-                   {/* Lainnya */}
+                    {/* Lainnya */}
                     <div className="px-3 py-2 text-sm font-semibold text-foreground">Lainnya</div>
                     <NavLink
                         url={route('admin.announcements.index')}

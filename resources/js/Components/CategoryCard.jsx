@@ -1,18 +1,16 @@
-import { Link } from "@inertiajs/react";
+import { Link } from '@inertiajs/react';
 
-export default function CategoryCard({item}){
+export default function CategoryCard({ item }) {
     return (
-        <Link 
+        <Link
             href={route('front.categories.show', [item.slug])}
-            className="relative flex flex-col w-full p-8 rounded-lg h-80 hover:opacity-75 xl:w-auto"
+            className="relative flex h-80 w-full flex-col rounded-lg p-8 hover:opacity-75 xl:w-auto"
         >
             <span className="absolute inset-0">
-                <img src={item.cover} alt={item.name} className="object-cover object-top w-full h-full" />
+                <img src={item.cover} alt={item.name} className="h-full w-full object-cover object-top" />
             </span>
-            <span className="absolute inset-x-0 bottom-0 opacity-50 h-2/3 bg-gradient-to-r from-gray-800"/>
-            <span className="relative mt-auto text-xl font-bold text-center text-white">
-                {item.name}
-            </span>
+            <span className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-r from-gray-800 opacity-50" />
+            <span className="relative mt-auto text-center text-xl font-bold text-white">{item.name}</span>
         </Link>
-    )
+    );
 }

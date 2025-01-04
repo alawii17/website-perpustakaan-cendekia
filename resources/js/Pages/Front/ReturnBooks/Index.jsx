@@ -10,7 +10,14 @@ import { UseFilter } from '@/hooks/UseFilter';
 import AppLayout from '@/Layouts/AppLayout';
 import { formatToRupiah } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
-import { IconArrowsDownUp, IconChecklist, IconCreditCardRefund, IconEye, IconMoneybag, IconRefresh } from '@tabler/icons-react';
+import {
+    IconArrowsDownUp,
+    IconChecklist,
+    IconCreditCardRefund,
+    IconEye,
+    IconMoneybag,
+    IconRefresh,
+} from '@tabler/icons-react';
 import { useState } from 'react';
 
 export default function Index(props) {
@@ -32,7 +39,7 @@ export default function Index(props) {
     });
 
     return (
-        <div className="flex w-full flex-col pb-32 space-y-4">
+        <div className="flex w-full flex-col space-y-4 pb-32">
             <div className="flex flex-col items-start justify-between gap-y-4 lg:flex-row lg:items-center">
                 <HeaderTitle
                     title={props.page_settings.title}
@@ -41,42 +48,36 @@ export default function Index(props) {
                 />
             </div>
 
-            <div className='grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3'>
+            <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
                 <CardStat
-                    data={{ 
+                    data={{
                         title: 'Dikembalikan',
                         icon: IconCreditCardRefund,
                         background: 'text-white bg-gradient-to-r from-green-400 via-green-500 to-green-500',
-                        iconClassName: 'text-white'
-                     }}
+                        iconClassName: 'text-white',
+                    }}
                 >
-                    <div className='text-2xl font-bold'>
-                        {props.page_data.returned}
-                    </div>
+                    <div className="text-2xl font-bold">{props.page_data.returned}</div>
                 </CardStat>
                 <CardStat
-                    data={{ 
+                    data={{
                         title: 'Pengecekan',
                         icon: IconChecklist,
                         background: 'text-white bg-gradient-to-r from-blue-400 via-blue-500 to-blue-500',
-                        iconClassName: 'text-white'
-                     }}
+                        iconClassName: 'text-white',
+                    }}
                 >
-                    <div className='text-2xl font-bold'>
-                        {props.page_data.checked}
-                    </div>
+                    <div className="text-2xl font-bold">{props.page_data.checked}</div>
                 </CardStat>
                 <CardStat
-                    data={{ 
+                    data={{
                         title: 'Denda',
                         icon: IconMoneybag,
                         background: 'text-white bg-gradient-to-r from-red-400 via-red-500 to-red-500',
-                        iconClassName: 'text-white'
-                     }}
+                        iconClassName: 'text-white',
+                    }}
                 >
-                    <div className='text-2xl font-bold'>
-                        {props.page_data.fine}
-                    </div>
+                    <div className="text-2xl font-bold">{props.page_data.fine}</div>
                 </CardStat>
             </div>
 
@@ -241,7 +242,11 @@ export default function Index(props) {
                                     <TableCell>
                                         <div className="flex items-center gap-x-1">
                                             <Button variant="blue" size="sm" asChild>
-                                                <Link href={route('front.return-books.show', [return_book.return_book_code])}>
+                                                <Link
+                                                    href={route('front.return-books.show', [
+                                                        return_book.return_book_code,
+                                                    ])}
+                                                >
                                                     <IconEye className="size-4" />
                                                 </Link>
                                             </Button>

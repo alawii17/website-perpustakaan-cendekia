@@ -1,14 +1,4 @@
 import HeaderTitle from '@/Components/HeaderTitle';
-import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTrigger,
-} from '@/Components/ui/alert-dialog';
 import { Button } from '@/Components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/Components/ui/card';
 import { Input } from '@/Components/ui/input';
@@ -17,21 +7,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/Components/ui/table';
 import { UseFilter } from '@/hooks/UseFilter';
 import AppLayout from '@/Layouts/AppLayout';
-import { flashMessage } from '@/lib/utils';
-import { Link, router } from '@inertiajs/react';
-import { AlertDialogTitle } from '@radix-ui/react-alert-dialog';
-import {
-    IconArrowsDownUp,
-    IconCreditCardPay,
-    IconCreditCardRefund,
-    IconEye,
-    IconPencil,
-    IconPlus,
-    IconRefresh,
-    IconTrash,
-} from '@tabler/icons-react';
+import { Link } from '@inertiajs/react';
+import { IconArrowsDownUp, IconCreditCardPay, IconEye, IconRefresh } from '@tabler/icons-react';
 import { useState } from 'react';
-import { toast } from 'sonner';
 
 export default function Index(props) {
     const { data: loans, meta } = props.loans;
@@ -178,9 +156,9 @@ export default function Index(props) {
                                     <TableCell>{loan.created_at}</TableCell>
                                     <TableCell>
                                         <div className="flex items-center gap-x-1">
-                                            <Button variant='blue' size='sm' asChild>
+                                            <Button variant="blue" size="sm" asChild>
                                                 <Link href={route('front.loans.show', [loan.loan_code])}>
-                                                    <IconEye className='size-4' />
+                                                    <IconEye className="size-4" />
                                                 </Link>
                                             </Button>
                                         </div>

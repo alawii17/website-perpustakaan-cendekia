@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,5 +25,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Vite::prefetch(concurrency: 3);
         JsonResource::withoutWrapping();
+
+        if (!App::environment([
+            'local',
+            'testing',
+        ])) {
+            URL::forceScheme('https');
+        }
     }
 }

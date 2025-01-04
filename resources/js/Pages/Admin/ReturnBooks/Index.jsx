@@ -222,7 +222,7 @@ export default function Index(props) {
                                                 </Button>
                                             )}
                                             {return_book.status === 'Pengecekan' && (
-                                                <Approve 
+                                                <Approve
                                                     conditions={props.conditions}
                                                     action={route('admin.return-books.approve', [return_book])}
                                                 />
