@@ -9,10 +9,19 @@ use App\Models\Loan;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Inertia\Response;
 
-class LoanFrontController extends Controller
+class LoanFrontController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('password.confirm', except: ['store']),
+        ];
+    }
+
     public function index(): Response
     {
         $loans = Loan::query()
